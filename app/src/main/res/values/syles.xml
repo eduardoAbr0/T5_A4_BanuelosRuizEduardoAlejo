@@ -7,16 +7,23 @@
         <item name="android:layout_weight">1</item>
         <item name="android:orientation">horizontal</item>
     </style>
+    <style name="radioButtons">
+        <item name="android:layout_height">wrap_content</item>
+        <item name="android:layout_width">wrap_content</item>
+        <item name="android:textSize">12dp</item>
+    </style>
     <style name="checkBoxes">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
-        <item name="android:layout_weight">0</item>
+        <item name="android:layout_weight">.75</item>
+        <item name="android:width">0dp</item>
     </style>
     <style name="txtRes">
         <item name="android:layout_height">match_parent</item>
         <item name="android:layout_width">wrap_content</item>
         <item name="android:height">0dp</item>
-        <item name="android:layout_weight">1</item>
+        <item name="android:width">0dp</item>
+        <item name="android:layout_weight">2</item>
         <item name="android:gravity">center</item>
         <item name="android:numeric">decimal</item>
     </style>

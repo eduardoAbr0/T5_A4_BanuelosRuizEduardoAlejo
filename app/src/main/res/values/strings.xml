@@ -1,3 +1,14 @@
 <resources>
     <string name="app_name">T5_A4_BanuelosRuizEduardoAlejo</string>
+    
+    <string name="txtTitulo">CONVERSOR</string>
+    <string name="radioDecimal">Decimal</string>
+    <string name="radioBinario">Binario</string>
+    <string name="radioOctal">Octal</string>
+    <string name="radioHex">Hexadecimal</string>
+    <string name="txtIngreso">Ingresa numero</string>
+    
+    <string name="chkBin">Binario</string>
+    <string name="chkOct">Octal</string>
+    <string name="chkHex">Hexadecimal</string>
 </resources>

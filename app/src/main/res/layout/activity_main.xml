@@ -21,7 +21,8 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:gravity="center"
-            android:text="HOLA" />
+            android:text="@string/txtTitulo"
+            android:id="@+id/txtTit"/>
 
         <RadioGroup
             android:layout_width="match_parent"
@@ -30,27 +31,32 @@
             android:orientation="horizontal">
 
             <RadioButton
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
+                style="@style/radioButtons"
+                android:id="@+id/btnDecimal"
+                android:text="@string/radioDecimal"
+                />
 
             <RadioButton
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
+                style="@style/radioButtons"
+                android:id="@+id/btnBinario"
+                android:text="@string/radioBinario" />
 
             <RadioButton
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
+                style="@style/radioButtons"
+                android:id="@+id/btnOctal"
+                android:text="@string/radioOctal" />
 
             <RadioButton
-                android:layout_width="30dp"
-                android:layout_height="30dp" />
+                style="@style/radioButtons"
+                android:id="@+id/btnHex"
+                android:text="@string/radioHex" />
         </RadioGroup>
 
         <EditText
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:inputType="numberDecimal"
-            android:text="hola" />
+            android:tooltipText="@string/txtIngreso"
+            android:id="@+id/txtIngreso"/>
     </LinearLayout>
 
 
@@ -63,26 +69,35 @@
         <LinearLayout
             style="@style/linInter">
             <CheckBox
-                style="@style/checkBoxes"/>
-            <TextView
-                style="@style/txtRes"/>
-        </LinearLayout>
-
-
-        <LinearLayout
-            style="@style/linInter">
-            <CheckBox
-                style="@style/checkBoxes"/>
-            <TextView
-                style="@style/txtRes"/>
-        </LinearLayout>
-
-        <LinearLayout
-            style="@style/linInter">
-            <CheckBox
-                style="@style/checkBoxes"/>
+                style="@style/checkBoxes"
+                android:text="@string/chkBin"
+                android:id="@+id/chkBin"/>
             <TextView
                 style="@style/txtRes"
+                android:id="@+id/txtBinRes"/>
+        </LinearLayout>
+
+
+        <LinearLayout
+            style="@style/linInter">
+            <CheckBox
+                style="@style/checkBoxes"
+                android:text="@string/chkOct"
+                android:id="@+id/chkOct"/>
+            <TextView
+                style="@style/txtRes"
+                android:id="@+id/txtOctRes"/>
+        </LinearLayout>
+
+        <LinearLayout
+            style="@style/linInter">
+            <CheckBox
+                style="@style/checkBoxes"
+                android:text="@string/chkHex"
+                android:id="@+id/chkHex"/>
+            <TextView
+                style="@style/txtRes"
+                android:id="@+id/txtHexRes"
                 />
         </LinearLayout>
 
