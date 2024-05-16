@@ -95,10 +95,13 @@
 
         <LinearLayout
             style="@style/linInter">
+
             <CheckBox
+                android:id="@+id/chkHex"
                 style="@style/checkBoxes"
                 android:text="@string/chkHex"
-                android:id="@+id/chkHex"/>
+                android:onClick="conversionHex"/>
+
             <EditText
                 style="@style/txtRes"
                 android:id="@+id/txtHexRes"

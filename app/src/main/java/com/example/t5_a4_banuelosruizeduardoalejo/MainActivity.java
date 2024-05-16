@@ -49,6 +49,7 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
+    //CONVERSIONES BINARIO
     public void conversionBinario(View v) {
         int id = radioGroup.getCheckedRadioButtonId();
 
@@ -92,6 +93,8 @@ public class MainActivity extends AppCompatActivity {
 
     }//CONVERSIONES BINARIO
 
+
+    //CONVERSIONES OCTAL
     public void conversionOctal(View v) {
         int id = radioGroup.getCheckedRadioButtonId();
 
@@ -130,11 +133,55 @@ public class MainActivity extends AppCompatActivity {
                 Toast.makeText(this, "Ingresa la entrada.", Toast.LENGTH_SHORT).show();
             }
         } else {
-            txtBinRes.setText("");
+            txtOctRes.setText("");
 
         }
 
     }
 
+    //CONVERSION HEXADECIMAL
+    public void conversionHex(View v){
+        int id = radioGroup.getCheckedRadioButtonId();
+
+        if (((CheckBox) v).isChecked()) {
+            //VERIFICACION CAMPO VACIO
+            if (!TextUtils.isEmpty(txtIngreso.getText().toString())) {
+
+                //CONVERSION DECIMAL A HEXADECIMAL
+                if (id == radioDecimal.getId()){
+                    int indD = Integer.parseInt(String.valueOf(txtIngreso.getText()));
+
+                    txtHexRes.setText(log.conversionDecimalHex(indD));
+                }//CONVERSION DECIMAL A HEXADECIMAL
+
+                //CONVERSION BINARIO A HEXADECIMAL
+                else if (id == radioBinario.getId()) {
+                    String inD = txtIngreso.getText().toString();
+
+                    txtHexRes.setText(log.conversionBinHex(inD));
+                }//CONVERSION BINARIO A HEXADECIMAL
+
+                //CONVERSION OCTAL A HEXADECIMAL
+                else if (id == radioOctal.getId()) {
+                    //CONVERTIR DE OCTAL A BINARIO
+                    int inInt = Integer.parseInt(String.valueOf(txtIngreso.getText()));
+                    String octBin = log.conversionOctalBinario(inInt);
+                    //CONVERTIR DE BINARIO A HEXADECIMAL
+                    String binHex = log.conversionBinHex(octBin);
+
+                    txtHexRes.setText(binHex);
+                } else {
+                    Toast.makeText(this, "Selecciona tipo de entrada.", Toast.LENGTH_SHORT).show();
+                }
+
+
+            } else {
+                Toast.makeText(this, "Ingresa la entrada.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            txtHexRes.setText("");
+
+        }
+    }//CONVERSIONES HEXADECIMAL
 
 }//MAIN
