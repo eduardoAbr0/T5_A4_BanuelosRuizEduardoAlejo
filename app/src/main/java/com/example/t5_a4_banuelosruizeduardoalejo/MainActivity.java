@@ -1,6 +1,7 @@
 package com.example.t5_a4_banuelosruizeduardoalejo;
 
 import android.os.Bundle;
+import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
@@ -8,6 +9,7 @@ import android.widget.EditText;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -18,11 +20,9 @@ import androidx.core.view.WindowInsetsCompat;
 public class MainActivity extends AppCompatActivity {
     logicaConversiones log = new logicaConversiones();
     RadioGroup radioGroup;
-    RadioButton radioDecimal,radioBinario,radioOctal,radioHex;
-    CheckBox chkOct,chkBin,chkHex;
-    TextView txtOctRes,txtHexRes;
-
-    EditText txtIngreso,txtBinRes;
+    RadioButton radioDecimal, radioBinario, radioOctal, radioHex;
+    CheckBox chkOct, chkBin, chkHex;
+    EditText txtIngreso, txtBinRes, txtOctRes, txtHexRes;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -49,24 +49,89 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void conversionBinario (View v){
+    public void conversionBinario(View v) {
         int id = radioGroup.getCheckedRadioButtonId();
-        if (((CheckBox) v).isChecked()) {
-            Double ingDec = Double.parseDouble(String.valueOf(txtIngreso.getText()));
-            int ingBin = Integer.parseInt(String.valueOf(txtIngreso.getText()));
 
-            if (id == radioDecimal.getId()) {
-                txtBinRes.setText(log.conversionDecimalBinario(ingBin));
-            } else if (id == radioBinario.getId()) {
+        //VERIFICACION CAMPO VACIO
+        if (!TextUtils.isEmpty(txtIngreso.getText().toString())) {
+            if (((CheckBox) v).isChecked()) {
+                String ingS = txtIngreso.getText().toString();
 
-            } else if (id == radioOctal.getId()) {
 
-            } else if (id == radioHex.getId()) {
+                //CONVERSION DECIMAL A BINARIO
+                if (id == radioDecimal.getId()) {
+                    double ingDec = Double.parseDouble(txtIngreso.getText().toString());
+                    int ingBin = (int) ingDec;
 
+                    if (ingBin < 0) {
+                        txtBinRes.setText("-" + log.conversionDecimalBinario(ingBin * -1));
+                    } else {
+                        txtBinRes.setText(log.conversionDecimalBinario(ingBin));
+                    }
+
+                    //CONVERSION OCTAL A BINARIO
+                } else if (id == radioOctal.getId()) {
+                    double ingDec = Double.parseDouble(txtIngreso.getText().toString());
+                    int ingBin = (int) ingDec;
+
+                    txtBinRes.setText(log.conversionOctalBinario(ingBin));
+                }
+
+                //CONVERSION HEXA A BINARIO
+                else if (id == radioHex.getId()) {
+                    txtBinRes.setText(log.conversionHexaBin(ingS));
+                } else {
+                    Toast.makeText(this, "Selecciona tipo de entrada.", Toast.LENGTH_SHORT).show();
+                }
+            } else {
+                txtBinRes.setText("");
             }
+        } else {
+            Toast.makeText(this, "Ingresa la entrada.", Toast.LENGTH_SHORT).show();
         }
+
     }//CONVERSIONES BINARIO
 
+    public void conversionOctal(View v) {
+        int id = radioGroup.getCheckedRadioButtonId();
+
+        if (((CheckBox) v).isChecked()) {
+            //VERIFICACION CAMPO VACIO
+            if (!TextUtils.isEmpty(txtIngreso.getText().toString())) {
+                //CONVERSION DECIMAL A OCTAL
+                if (id == radioDecimal.getId()) {
+                    int inDou = Integer.parseInt(txtIngreso.getText().toString());
+
+                    txtOctRes.setText(log.conversionDecimalOctal(inDou));
+                }
+
+                //CONVERSIONBINARIO A OCTAL
+                else if (id == radioBinario.getId()) {
+                    int inDou = Integer.parseInt(txtIngreso.getText().toString());
+
+                    txtOctRes.setText(log.conversionBinarioOctal(inDou));
+                } else if (id == radioHex.getId()) {
+                    String inDou = txtIngreso.getText().toString();
+                    //HEXADECIMAL A BINARIO
+                    String hexD = log.conversionHexaBin(inDou);
+                    //BINARIO A OCTAL
+                    String binOc = log.conversionBinarioOctal(Integer.parseInt(hexD));
+
+                    txtOctRes.setText(binOc);
+
+                } else {
+                    Toast.makeText(this, "Selecciona tipo de entrada.", Toast.LENGTH_SHORT).show();
+                }
+
+            } else {
+                Toast.makeText(this, "Ingresa la entrada.", Toast.LENGTH_SHORT).show();
+            }
+        } else {
+            txtBinRes.setText("");
+
+        }
+
+    }
 
 
 }//MAIN

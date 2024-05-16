@@ -86,8 +86,9 @@
             <CheckBox
                 style="@style/checkBoxes"
                 android:text="@string/chkOct"
-                android:id="@+id/chkOct"/>
-            <TextView
+                android:id="@+id/chkOct"
+                android:onClick="conversionOctal"/>
+            <EditText
                 style="@style/txtRes"
                 android:id="@+id/txtOctRes"/>
         </LinearLayout>
@@ -98,7 +99,7 @@
                 style="@style/checkBoxes"
                 android:text="@string/chkHex"
                 android:id="@+id/chkHex"/>
-            <TextView
+            <EditText
                 style="@style/txtRes"
                 android:id="@+id/txtHexRes"
                 />
