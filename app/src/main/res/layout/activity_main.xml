@@ -22,33 +22,35 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:text="@string/txtTitulo"
-            android:id="@+id/txtTit"/>
+            android:id="@+id/txtTit"
+            android:paddingBottom="150dp"/>
 
         <RadioGroup
+            android:id="@+id/grupoConversiones"
             android:layout_width="match_parent"
-            android:layout_height="30dp"
+            android:layout_height="wrap_content"
             android:gravity="center_horizontal"
+            android:onClick="eleccionConversor"
             android:orientation="horizontal">
 
             <RadioButton
+                android:id="@+id/radioDecimal"
                 style="@style/radioButtons"
-                android:id="@+id/btnDecimal"
-                android:text="@string/radioDecimal"
-                />
+                android:text="@string/radioDecimal" />
 
             <RadioButton
+                android:id="@+id/radioBinario"
                 style="@style/radioButtons"
-                android:id="@+id/btnBinario"
                 android:text="@string/radioBinario" />
 
             <RadioButton
+                android:id="@+id/radioOctal"
                 style="@style/radioButtons"
-                android:id="@+id/btnOctal"
                 android:text="@string/radioOctal" />
 
             <RadioButton
+                android:id="@+id/radioHex"
                 style="@style/radioButtons"
-                android:id="@+id/btnHex"
                 android:text="@string/radioHex" />
         </RadioGroup>
 
@@ -69,10 +71,11 @@
         <LinearLayout
             style="@style/linInter">
             <CheckBox
+                android:id="@+id/chkBin"
                 style="@style/checkBoxes"
-                android:text="@string/chkBin"
-                android:id="@+id/chkBin"/>
-            <TextView
+                android:onClick="conversionBinario"
+                android:text="@string/chkBin" />
+            <EditText
                 style="@style/txtRes"
                 android:id="@+id/txtBinRes"/>
         </LinearLayout>
