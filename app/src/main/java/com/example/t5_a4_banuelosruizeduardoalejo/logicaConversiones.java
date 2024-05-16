@@ -32,8 +32,8 @@ public class logicaConversiones {
     }
 
     //BINARIO
-    public String conversionBinarioOctal(int n) {
-        String bin = String.valueOf(n);
+    public String conversionBinarioOctal(String bin ) {
+        //String bin = String.valueOf(n);
         String oct = "";
 
         while ((bin.length()) % 3 != 0) {

@@ -105,17 +105,20 @@ public class MainActivity extends AppCompatActivity {
                     txtOctRes.setText(log.conversionDecimalOctal(inDou));
                 }
 
-                //CONVERSIONBINARIO A OCTAL
+                //CONVERSION BINARIO A OCTAL
                 else if (id == radioBinario.getId()) {
-                    int inDou = Integer.parseInt(txtIngreso.getText().toString());
+                    String inDou = txtIngreso.getText().toString();
 
                     txtOctRes.setText(log.conversionBinarioOctal(inDou));
-                } else if (id == radioHex.getId()) {
+                }
+
+                //CONVERSION HEXADECIMAL A OCTAL
+                else if (id == radioHex.getId()) {
                     String inDou = txtIngreso.getText().toString();
                     //HEXADECIMAL A BINARIO
                     String hexD = log.conversionHexaBin(inDou);
                     //BINARIO A OCTAL
-                    String binOc = log.conversionBinarioOctal(Integer.parseInt(hexD));
+                    String binOc = log.conversionBinarioOctal(hexD);
 
                     txtOctRes.setText(binOc);
 
